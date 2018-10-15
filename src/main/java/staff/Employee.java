@@ -7,9 +7,9 @@ public abstract class Employee {
     private double salary;
 
     public Employee(String name, int niNumber, double salary) {
-        this.name = name;
         this.niNumber = niNumber;
         this.salary = salary;
+        this.name = name;
     }
 
     public String getName() {
@@ -25,10 +25,28 @@ public abstract class Employee {
     }
 
     public void raiseSalary(double raiseAmount) {
-        this.salary += raiseAmount;
+        if (raiseAmount >= 1) {
+            this.salary += raiseAmount;
+        }
     }
 
     public double payBonus() {
         return (salary * 0.01);
+    }
+
+    public void setName(String newName) {
+        if (newName.isEmpty()) {
+            return;
+        } else {
+            this.name = newName;
+        }
+//        if (newName != null && newName.length() == 0) {
+//            this.name = newName;
+//        }
+//        if (newName == null){
+//            return;
+//        } else {
+//            this.name = newName;
+//        }
     }
 }
